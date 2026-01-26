@@ -2,7 +2,7 @@ name: Jobs scraper
 
 on:
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "0 5 * * *"   # každý den v 05:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -29,17 +29,17 @@ jobs:
       - name: Generate RSS
         run: python generate_rss.py
 
-      - name: - name: Commit and push RSS
-  run: |
-    git config user.name "github-actions"
-    git config user.email "actions@github.com"
-    git add output/*.xml output/*.json || true
-    if git diff --cached --quiet; then
-      echo "No changes to commit"
-    else
-      git commit -m "Update RSS feeds"
-      git push
-    fi
+      - name: Commit and push RSS
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add output/*.xml output/*.json || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update RSS feeds"
+            git push
+          fi
 
   deploy:
     needs: build
