@@ -1,0 +1,9 @@
+executive-osint/
+│
+├── scraper.py
+├── generate_rss.py
+├── requirements.txt
+├── output/              (prázdná složka, jen ji vytvoř)
+└── .github/
+    └── workflows/
+        └── run.yml
