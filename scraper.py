@@ -113,7 +113,8 @@ def scrape_linkedin_jobs():
                 "location": "Czech Republic",
                 "url": link,
                 "source": "LinkedIn",
-                "fetched_at": datetime.utcnow().isoformat() + "Z"
+                "fetched_at": datetime.now(datetime.timezone.utc).isoformat()
+
             })
 
     return results
