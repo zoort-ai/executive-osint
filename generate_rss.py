@@ -14,7 +14,7 @@ def create_feed(jobs, title, link, description, output_path):
     for job in jobs:
         fe = fg.add_entry()
         fe.title(job["title"])
-        fe.link(href=job["link"])
+        fe.link(href=job["url"])
         fe.description(f"{job.get('company', '')} – {job.get('location', '')}")
         fe.pubDate(datetime.utcnow())
 
